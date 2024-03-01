@@ -65,6 +65,9 @@ jobs:
       - name: Rustup add target
         run: rustup target add ${{ matrix.target }}
 
+      - name: Debug info
+        run: pnpm tauri info
+
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
         id: tauri-build
@@ -72,6 +75,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: -t ${{ matrix.target }}
-
-      - name: Debug info
-        run: pnpm tauri info
