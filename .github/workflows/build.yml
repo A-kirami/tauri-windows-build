@@ -72,3 +72,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: -t ${{ matrix.target }}
+
+      - name: Debug info
+        run: pnpm tauri info
